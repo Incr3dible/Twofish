@@ -22,26 +22,17 @@ namespace Twofish
 
         public DWord(IReadOnlyList<byte> buffer, int offset) : this()
         {
-            B0 = buffer[offset + 0];
+            B0 = buffer[offset];
             B1 = buffer[offset + 1];
             B2 = buffer[offset + 2];
             B3 = buffer[offset + 3];
         }
 
-        public static explicit operator uint(DWord expr)
-        {
-            return expr.Value;
-        }
+        public static explicit operator uint(DWord expr) => expr.Value;
 
-        public static explicit operator DWord(int value)
-        {
-            return new DWord((uint) value);
-        }
+        public static explicit operator DWord(int value) => new DWord((uint) value);
 
-        public static explicit operator DWord(uint value)
-        {
-            return new DWord(value);
-        }
+        public static explicit operator DWord(uint value) => new DWord(value);
 
         public static DWord operator +(DWord expr1, DWord expr2)
         {
